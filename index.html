@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy – Bloak</title>
+<meta name="description" content="How Bloak, a block puzzle game by Tensor Forge, handles your information.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #151a3c;
+    --ink-soft: #444a6d;
+    --paper: #f6f5fb;
+    --white: #ffffff;
+    --line: #dedcec;
+    --ruby: #f2264d;
+    --sapphire: #3380ff;
+    --emerald: #1fd973;
+    --topaz: #ffcc26;
+    --amethyst: #bf59ff;
+    --link: #2253c9;
+    --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+    --body: "Hanken Grotesk", "Segoe UI", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--link); text-underline-offset: 3px; }
+  a:hover { color: var(--ink); }
+  :focus-visible { outline: 3px solid var(--sapphire); outline-offset: 3px; border-radius: 3px; }
+
+  /* ---------- Hero ---------- */
+  .hero { background: var(--ink); color: #fff; }
+  .hero-inner {
+    max-width: 1080px; margin: 0 auto; padding: 56px 24px 64px;
+    display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: center;
+  }
+  .brand { font-family: var(--display); font-weight: 700; font-size: 1.1rem; letter-spacing: .01em; color: #b9bdf0; margin: 0 0 28px; }
+  .hero h1 {
+    font-family: var(--display); font-weight: 800; font-size: clamp(2.6rem, 6vw, 4.4rem);
+    line-height: 1.02; letter-spacing: -.02em; margin: 0 0 20px;
+  }
+  .hero p.lead { font-size: 1.2rem; color: #d3d6f5; max-width: 34ch; margin: 0 0 28px; line-height: 1.55; }
+  .meta { display: flex; flex-wrap: wrap; gap: 8px 28px; font-size: .95rem; color: #b9bdf0; margin: 0; }
+  .meta b { color: #fff; font-weight: 600; }
+
+  /* the board: seven by seven, like the game */
+  .board {
+    display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px;
+    width: 266px; padding: 10px; background: #0d1030; border-radius: 16px;
+    box-shadow: 0 0 0 2px #2a3070;
+  }
+  .cell { aspect-ratio: 1; border-radius: 6px; background: #1a2050; }
+  .cell.on { box-shadow: inset 0 -4px 0 rgba(0,0,0,.22), inset 0 3px 0 rgba(255,255,255,.28); }
+  .cell.c1 { background: var(--ruby); }
+  .cell.c2 { background: var(--sapphire); }
+  .cell.c3 { background: var(--emerald); }
+  .cell.c4 { background: var(--topaz); }
+  .cell.c5 { background: var(--amethyst); }
+  .cell.clearing { animation: clear .5s ease-in forwards; }
+  @keyframes clear {
+    0% { filter: brightness(1); transform: scale(1); }
+    40% { filter: brightness(1.9); transform: scale(1.08); }
+    100% { filter: brightness(1); transform: scale(0); opacity: 0; }
+  }
+
+  /* ---------- Layout ---------- */
+  .wrap {
+    max-width: 1080px; margin: 0 auto; padding: 56px 24px 80px;
+    display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 64px;
+  }
+  nav.toc { position: sticky; top: 32px; align-self: start; font-size: .95rem; }
+  nav.toc p { font-family: var(--display); font-weight: 700; margin: 0 0 12px; }
+  nav.toc ol { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--line); }
+  nav.toc a {
+    display: block; padding: 6px 0 6px 16px; margin-left: -2px; border-left: 2px solid transparent;
+    color: var(--ink-soft); text-decoration: none;
+  }
+  nav.toc a:hover { color: var(--ink); border-left-color: var(--sapphire); }
+
+  main { max-width: 680px; }
+
+  .summary {
+    background: var(--white); border: 1px solid var(--line); border-radius: 14px;
+    padding: 8px 28px; margin: 0 0 56px;
+  }
+  .summary h2 { font-family: var(--display); font-size: 1.3rem; margin: 20px 0 4px; }
+  .summary dl { margin: 0; }
+  .summary .row { display: grid; grid-template-columns: 14px 1fr; gap: 0 14px; padding: 14px 0; border-top: 1px solid var(--line); }
+  .summary .row:first-of-type { border-top: 0; }
+  .summary .dot { width: 14px; height: 14px; border-radius: 4px; margin-top: 7px; }
+  .summary dt { font-weight: 600; }
+  .summary dd { margin: 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.55; grid-column: 2; }
+
+  section { margin: 0 0 44px; }
+  h2.title {
+    font-family: var(--display); font-weight: 700; font-size: 1.65rem; line-height: 1.2;
+    letter-spacing: -.01em; margin: 0 0 12px; display: flex; gap: 14px; align-items: baseline;
+  }
+  h2.title .n { font-weight: 500; color: var(--sapphire); min-width: 1.6ch; }
+  section p, section li { color: #2b3052; }
+  section p { margin: 0 0 14px; }
+  section ul { padding-left: 1.2em; margin: 0 0 14px; }
+  section li { margin-bottom: 6px; }
+
+  .contact {
+    background: var(--ink); color: #fff; border-radius: 14px; padding: 28px;
+  }
+  .contact h2 { font-family: var(--display); margin: 0 0 8px; font-size: 1.5rem; }
+  .contact p { color: #d3d6f5; margin: 0 0 14px; }
+  .contact a.mail {
+    display: inline-block; background: var(--topaz); color: var(--ink); font-weight: 600;
+    padding: 12px 20px; border-radius: 10px; text-decoration: none;
+  }
+  .contact a.mail:hover { background: #ffd95e; color: var(--ink); }
+
+  footer { border-top: 1px solid var(--line); padding: 28px 24px 40px; text-align: center; color: var(--ink-soft); font-size: .9rem; }
+
+  @media (max-width: 860px) {
+    .hero-inner { grid-template-columns: 1fr; padding: 40px 20px 48px; }
+    .board { width: 220px; }
+    .wrap { grid-template-columns: 1fr; gap: 0; padding: 36px 20px 56px; }
+    nav.toc { display: none; }
+    .summary { padding: 4px 20px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .cell.clearing { animation: none; opacity: .35; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div>
+      <p class="brand">Bloak &middot; Tensor Forge</p>
+      <h1>Privacy Policy</h1>
+      <p class="lead">What Bloak keeps on your phone, what advertising partners can see, and the choices you have.</p>
+      <p class="meta">
+        <span><b>Game</b> Bloak</span>
+        <span><b>Developer</b> Tensor Forge</span>
+        <span><b>Last updated</b> 5 October 2026</span>
+      </p>
+    </div>
+    <div class="board" id="board" aria-hidden="true"></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <nav class="toc" aria-label="Contents">
+    <p>Contents</p>
+    <ol>
+      <li><a href="#stored">Stored on your device</a></li>
+      <li><a href="#ads">Advertising</a></li>
+      <li><a href="#purchases">In-app purchases</a></li>
+      <li><a href="#children">Children</a></li>
+      <li><a href="#sharing">Sharing</a></li>
+      <li><a href="#retention">Retention and deletion</a></li>
+      <li><a href="#rights">Your rights</a></li>
+      <li><a href="#changes">Changes</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <div class="summary">
+      <h2>The short version</h2>
+      <dl>
+        <div class="row"><span class="dot" style="background:var(--emerald)"></span><div><dt>No account, no sign-up</dt><dd>Your progress, scores and coins stay on your device.</dd></div></div>
+        <div class="row"><span class="dot" style="background:var(--topaz)"></span><div><dt>Ads come from Google AdMob</dt><dd>AdMob may use your advertising ID and device details to show and measure ads.</dd></div></div>
+        <div class="row"><span class="dot" style="background:var(--sapphire)"></span><div><dt>You can change your ad choices</dt><dd>Use the Privacy button in Settings, or your Android ad settings.</dd></div></div>
+        <div class="row"><span class="dot" style="background:var(--ruby)"></span><div><dt>We never sell your data</dt><dd>Payments are handled by Google Play. We never see your card details.</dd></div></div>
+      </dl>
+    </div>
+
+    <p>This Privacy Policy explains what information Bloak ("the game") uses, and how. By playing the game you agree to this policy.</p>
+
+    <section id="stored">
+      <h2 class="title"><span class="n">1</span>Information stored on your device</h2>
+      <p>The game saves your progress, scores, coins, purchases, unlocked items and settings (such as sound and music) on your device. This information stays on your device. We do not create accounts and we do not collect your name, email address or phone number through the game.</p>
+    </section>
+
+    <section id="ads">
+      <h2 class="title"><span class="n">2</span>Advertising</h2>
+      <p>The game shows ads through Google AdMob. To show and measure ads, Google and its partners may collect and use information from your device, such as your advertising ID, IP address, device type and operating system, and how you interact with ads. This may involve cookies or similar technologies.</p>
+      <p>Players in the European Economic Area and the United Kingdom are asked for consent before personalized ads are used, and can change that choice at any time using the Privacy button in the game's Settings.</p>
+      <p>You can also reset or opt out of personalized ads in your device settings (on Android: Settings &rarr; Privacy &rarr; Ads).</p>
+      <p>More information:</p>
+      <ul>
+        <li><a href="https://policies.google.com/technologies/partner-sites">How Google uses information from sites or apps that use its services</a></li>
+        <li><a href="https://support.google.com/admob/answer/6128543">AdMob and Google Ads data practices</a></li>
+      </ul>
+    </section>
+
+    <section id="purchases">
+      <h2 class="title"><span class="n">3</span>In-app purchases</h2>
+      <p>The game offers optional purchases, such as removing ads. Payments are handled entirely by Google Play. We do not receive or store your payment details.</p>
+    </section>
+
+    <section id="children">
+      <h2 class="title"><span class="n">4</span>Children</h2>
+      <p>The game is not directed at children under 13, and we do not knowingly collect personal information from children. If you believe a child has provided personal information, contact us and we will help.</p>
+    </section>
+
+    <section id="sharing">
+      <h2 class="title"><span class="n">5</span>Sharing of information</h2>
+      <p>We do not sell your personal information. Information is shared only with the service providers described above (Google AdMob and Google Play), who process it under their own privacy policies.</p>
+    </section>
+
+    <section id="retention">
+      <h2 class="title"><span class="n">6</span>Data retention and deletion</h2>
+      <p>Game data is stored on your device and is removed when you uninstall the game or clear its data. Because we do not hold your data on our servers, there is nothing else for us to delete. For data held by Google, see Google's privacy tools.</p>
+    </section>
+
+    <section id="rights">
+      <h2 class="title"><span class="n">7</span>Your rights</h2>
+      <p>Depending on where you live (for example the EEA, UK or California), you may have rights to access, correct or delete personal data, and to object to or withdraw consent for certain processing. Because the game does not keep personal data about you on our servers, these requests mainly apply to data held by Google. You can contact us with any question.</p>
+    </section>
+
+    <section id="changes">
+      <h2 class="title"><span class="n">8</span>Changes to this policy</h2>
+      <p>We may update this policy from time to time. The latest version will always be available at this page, with the date above updated.</p>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2>9. Contact us</h2>
+      <p>Questions about this Privacy Policy? Send us an email and we will reply.</p>
+      <a class="mail" href="mailto:tensorforge.games@gmail.com">tensorforge.games@gmail.com</a>
+    </section>
+  </main>
+</div>
+
+<footer>&copy; 2026 Tensor Forge. Bloak is a Tensor Forge game.</footer>
+
+<script>
+  // Decorative board: a few blocks, then one full row clears once on load.
+  (function () {
+    var el = document.getElementById('board');
+    if (!el) return;
+    var rows = [
+      "0000000",
+      "0000000",
+      "0000000",
+      "0010000",
+      "0414000",
+      "1234512",
+      "3542354"
+    ];
+    // row 5 is the full row that clears
+    var html = "";
+    for (var r = 0; r < 7; r++) {
+      for (var c = 0; c < 7; c++) {
+        var v = rows[r].charAt(c);
+        html += v === "0" ? '<div class="cell"></div>'
+                          : '<div class="cell on c' + v + '" data-r="' + r + '"></div>';
+      }
+    }
+    el.innerHTML = html;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    setTimeout(function () {
+      var cells = el.querySelectorAll('.cell[data-r="5"]');
+      for (var i = 0; i < cells.length; i++) {
+        cells[i].style.animationDelay = (i * 0.05) + "s";
+        cells[i].classList.add('clearing');
+      }
+    }, 900);
+  })();
+</script>
+</body>
+</html>
